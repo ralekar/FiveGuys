@@ -21,6 +21,9 @@ class Resources:
 		response = requests.get(URL,params)
 		return response.text
                 
+
+
+
         
 @app.route("/test")
 def main():
