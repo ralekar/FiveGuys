@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag "style.css" %>
+
+<title>
+
+	
+</title>
+
+<body>
+<h1> Five Guys! </h1>
+<div class ="row">
+
+<% @body["bundle"].each do |t| %>
+<div class="col-xs-6 col-sm-4 division">
+<ul >  
+
+<% t["media"].each do |id| %>
+<%= image_tag(id["url"], height: '100', width: '150') %> 
+<%end%>
+<br />
+Address : <%= t["address"] %><br />
+ BathRoom = <%= t["baths"]%> , Bedrooms = <%= t["bedrooms"] %>  <br />
+ <span class="label label-default"> Price = </span> <%= number_to_currency(t["price"]) %> 
+</ul>
+</div>
+<%end%> 
+</div>
+</div>
+</body>
+
+
+
