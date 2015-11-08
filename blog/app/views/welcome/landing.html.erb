@@ -1,31 +1,75 @@
-<%= stylesheet_link_tag "style.css" %>
 
-<title>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Landing Page template</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+		<h1>Your Favourite Listings</h1>
+         <p><h5>House selection made Easy!!</h5></p>
+          
+          <br><br><br>
+            <!-- <div class="input-group" > -->
+            <div class="center">
+            <table class="table borderless" border="0">
+            	<tr>
+            		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            		<% @f.each do |t| %>
+            			<td><%= image_tag(t["image"], height: '150', width: '250') %></td>
+            		<%end%>
+            	</tr>
+            	<tr>
+            		<td><h2>Price  </h2></td>
+            		<% @f.each do |t| %>
+            			<td><h2><%= number_to_currency(t["price"]) %></h2></td>
+            		<%end%>
+            	</tr>
+            		<td><h2>Quality of Neighborhood </h2></td>
+            		<% @f.each do |t| %>
+            			<td><h2><%= t["neighbor"] %></h2></td>
+            		<%end%>
+            	</tr>
+            		
+            	<tr>
+            		<td><h2>Family Friendly</h2> </td>
+            		<% @f.each do |t| %>
+            			<td><h2><%= t["fam"]  %></h2></td>
+            		<%end%>
+            	</tr>
 
+            	<tr>
+            		<td><h2>Ease of Commute </h2></td>
+            		<% @f.each do |t| %>
+            			<td><h2><%= t["com"]  %></h2></td>
+            		<%end%>
+            		
+            	</tr>
+
+            </table>
+            	
+ 
+              
+            <!-- </div> -->
+          </div>
+        
+ <!-- /row -->
+  
+   <!-- /container full -->
+
+<script type="text/javascript">
+	$('input').rating('rate', 2.5);
 	
-</title>
-
-<body>
-<h1> Five Guys! </h1>
-<div class ="row">
-
-<% @body["bundle"].each do |t| %>
-<div class="col-xs-6 col-sm-4 division">
-<ul >  
-
-<% t["media"].each do |id| %>
-<%= image_tag(id["url"], height: '100', width: '150') %> 
-<%end%>
-<br />
-Address : <%= t["address"] %><br />
- BathRoom = <%= t["baths"]%> , Bedrooms = <%= t["bedrooms"] %>  <br />
- <span class="label label-default"> Price = </span> <%= number_to_currency(t["price"]) %> 
-</ul>
-</div>
-<%end%> 
-</div>
-</div>
-</body>
+</script>
+<%= stylesheet_link_tag "style.css" %>
 
 
 

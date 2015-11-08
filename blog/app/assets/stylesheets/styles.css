@@ -35,3 +35,7 @@ h1 {
 .division{
   margin-top: 30px;
 }
+
+.borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
+    border: none;
+}
